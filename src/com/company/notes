@@ -1,0 +1,4 @@
+currently, the code runs with a grey box and one letter from the font file (exclamation mark) which is intentional.
+i also made the box unresizable because it will break the fillrect that i did before.
+the animation class is still being done.
+database hasn't been imported yet.
