@@ -51,6 +51,12 @@ public class Animation {
             timesPlayed++;
         }
     }
+    public int getDelay() {return delay;}
+    public int getFrame() {return currentFrame;}
+    public BufferedImage getImage() { return frames[currentFrame];}
+    public boolean hasPlayedOnce() { return timesPlayed > 0;}
+    public boolean hasPlayed(int i) {return timesPlayed == 1;}
+
 
 
 }
