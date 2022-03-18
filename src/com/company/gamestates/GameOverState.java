@@ -1,6 +1,6 @@
 package com.company.gamestates;
 
-import com.company.KeyHandler;
+import com.company.handlers.KeyHandler;
 
 import java.awt.*;
 

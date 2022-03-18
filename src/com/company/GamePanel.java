@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.gamestates.GameStateManager;
+import com.company.handlers.KeyHandler;
 
 import javax.swing.JPanel;
 import java.awt.*;

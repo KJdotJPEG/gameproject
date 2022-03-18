@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.entity.Entity;
+
 public class Collisions { //AABB
 
     private Vector2f pos;
@@ -20,10 +22,11 @@ public class Collisions { //AABB
 
     }
 
-    public Collisions (Vector2f pos, int r) {
+    public Collisions (Vector2f pos, int r, Entity e) {
         this.pos = pos;
         size = r;
         this.r = r;
+        this.e = e;
 
 
     }
@@ -66,9 +69,18 @@ public class Collisions { //AABB
         return false;
     }
 
-    public boolean colCirclesBox(Collisions bBox ) {
+    public boolean colCirclesBox(Collisions aBox ) { //finding the collisions between a circle and a box
         // sqrt means square root
-        float cx = (float) (pos.getWorldVar().x + r / Math.sqrt(2) - )
+        float cx = (float) (pos.getWorldVar().x + r / Math.sqrt(2) - e.getSize() / Math.sqrt(2));
+        float cy = (float) (pos.getWorldVar().y + r / Math.sqrt(2) - e.getSize() / Math.sqrt(2));
+
+        float xDelta = cx - Math.max(aBox.pos.getWorldVar().x + (aBox.getWidth() /2), Math.min(cx, aBox.pos.getWorldVar(). x));
+        float yDelta = cy - Math.max(aBox.pos.getWorldVar().y + (aBox.getWidth() /2), Math.min(cx, aBox.pos.getWorldVar(). y));
+
+        if ((xDelta * xDelta + yDelta * yDelta)< ((this.r / Math.sqrt(2)) * (this.r / Math.sqrt(2)))) {
+            return true;
+        }
+
         return false;
     }
 

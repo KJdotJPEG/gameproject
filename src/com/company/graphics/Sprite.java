@@ -1,4 +1,7 @@
-package com.company;
+package com.company.graphics;
+
+import com.company.Vector2f;
+import com.company.graphics.Font;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

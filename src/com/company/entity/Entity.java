@@ -1,4 +1,10 @@
-package com.company;
+package com.company.entity;
+
+import com.company.graphics.Animation;
+import com.company.Collisions;
+import com.company.graphics.Sprite;
+import com.company.Vector2f;
+import com.company.handlers.KeyHandler;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -18,10 +24,10 @@ public abstract class Entity {
 
     private int currentAnimation;
 
-    protected boolean up;
-    protected boolean down;
-    protected boolean left;
-    protected boolean right;
+    protected boolean Up;
+    protected boolean Down;
+    protected boolean Left;
+    protected boolean Right;
     protected boolean attack;
     protected int attackspeed;
     protected int attacktime;
@@ -33,16 +39,38 @@ public abstract class Entity {
     protected float acceleration;
     protected float deceleration;
 
+    protected Collisions hitBounds;
+    protected Collisions bounds;
+
+
 
     public Entity(Sprite sprite, Vector2f origin, int size) {
         this.sprite = sprite;
         pos = origin;
         this.size = size;
 
+        bounds = new Collisions(origin, size, size);
+        hitBounds = new Collisions(new Vector2f(origin.x + (size / 2), origin.y), size, size); //offsets hitbounds
+
         ani = new Animation();
         setAnimation(right, sprite.getSpriteArray(right), 10);
 
     }
+
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
+    }
+
+    public void setSize(int i) { size = i;}
+    public void setMaxSpeed(float f) {maxspeed = f; }
+    public void setAcc(float f) {acceleration = f; }
+    public void setDeacc(float f) {deceleration = f; }
+
+    public Collisions getBounds() {return bounds; }
+
+    public int getSize() { return size; }
+    public Animation getAnimation() { return ani; }
+
     public void setAnimation(int i, BufferedImage[] frames, int delay) {
         currentAnimation = i;
         ani.setFrames(frames);
@@ -56,26 +84,46 @@ public abstract class Entity {
         ani.update();
     }
 
+    private void setHitBoxDirection() {
+        if (Up) {
+            hitBounds.setYoffset(-size / 2);
+            hitBounds.setXoffset(-size / 2);
+
+        }if (Left) {
+            hitBounds.setXoffset(-size);
+            hitBounds.setYoffset(0);
+
+        }if (Right) {
+            hitBounds.setXoffset(0);
+            hitBounds.setYoffset(0);
+
+        }if (Down) {
+            hitBounds.setYoffset(size / 2);
+            hitBounds.setXoffset(size / 2);
+
+        }
+    }
+
     public abstract void render(Graphics2D g);
     public void input(KeyHandler key){} //update this if mousehandler is going to be added
 
     public void animate() {
-        if (up){
+        if (Up){
             if(currentAnimation != up || ani.getDelay() == -1) {
                 setAnimation(up,sprite.getSpriteArray(up), 5);
             }
         }
-        else if (down){
+        else if (Down){
             if(currentAnimation != down || ani.getDelay() == -1) {
                 setAnimation(down,sprite.getSpriteArray(down), 5);
             }
         }
-        else if (left){
+        else if (Left){
             if(currentAnimation != left || ani.getDelay() == -1) {
                 setAnimation(left,sprite.getSpriteArray(left), 5);
             }
         }
-        else if (right){
+        else if (Right){
             if(currentAnimation != right || ani.getDelay() == -1) {
                 setAnimation(right,sprite.getSpriteArray(right), 5);
             }

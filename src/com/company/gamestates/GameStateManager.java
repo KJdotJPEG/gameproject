@@ -2,6 +2,7 @@ package com.company.gamestates;
 
 import com.company.GamePanel;
 import com.company.Vector2f;
+import com.company.handlers.KeyHandler;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class GameStateManager  {
         }
 
     }
-    public void input (com.company.KeyHandler Key) {
+    public void input (KeyHandler Key) {
         for (int i = 0; i < states.size(); i++) {
             states.get(i).input(Key);
 
