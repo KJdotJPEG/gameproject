@@ -90,7 +90,7 @@ public class Sprite {
     }
 
     public BufferedImage[] getSpriteArray(int i) {
-        return spriteArray[i];
+        return spriteArray[1]; //i changed this here, change it when needed
     }
 
     public BufferedImage[][] getSpriteArray2(int i) {

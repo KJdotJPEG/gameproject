@@ -57,6 +57,7 @@ public class GamePanel extends JPanel implements Runnable {
 // start of gameloop
 
     public void run(){ //fixed time gameloop here
+
         init();
 
         final double GAME_HERTZ = 60.0;

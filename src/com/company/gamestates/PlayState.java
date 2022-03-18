@@ -17,8 +17,8 @@ public class PlayState extends GameState {
 
     public PlayState (GameStateManager gsm) {
         super(gsm);
-        font = new Font("com/company/assets/Spritesheets/font-hand-24x32.png", 24,32);
-        player = new Player(new Sprite( "com/company/assets/Spritesheets/placeholderspritesheet.png"), new Vector2f(300,300), 32);
+        font = new Font("com/company/assets/Spritesheets/font.png", 24,32);
+        player = new Player(new Sprite( "com/company/assets/Spritesheets/placeholderspritesheet.png"), new Vector2f(300,300), 100);
     }
 
     public void update(){
@@ -30,6 +30,7 @@ public class PlayState extends GameState {
 
         if (Key.up.down) {
             System.out.println("input : W");
+
         }
         if (Key.left.down) {
             System.out.println("input : A");
@@ -56,7 +57,7 @@ public class PlayState extends GameState {
 
 
     public void render(Graphics2D g){
-        Sprite.drawArray(g, font, " YOUR MUM ", new Vector2f(100,100), 32, 32, 32,0);
+        Font.drawArray(g, font, " AAAA ", new Vector2f(100,100), 32, 32, 32,0);
         player.render(g);
     };
 }

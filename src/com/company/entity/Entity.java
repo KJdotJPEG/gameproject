@@ -14,8 +14,8 @@ public abstract class Entity {
 
     private final int up = 0;
     private final int down = 1;
-    private final int left = 2;
-    private final int right = 3;
+    private final int left = 3;
+    private final int right = 2;
 
     protected Animation ani;
     protected Sprite sprite;
