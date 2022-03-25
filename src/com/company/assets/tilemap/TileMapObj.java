@@ -49,6 +49,10 @@ public class TileMapObj extends tilemap {
         }
     }
 
+    public TileMapObj(String datum, Sprite sprite, int width, int height, int blockwidth, int blockheight, int tilecolumns) {
+        super();
+    }
+
     public Block[] getBlocks() { return event_blocks; }
 
     public void render(Graphics2D g, Collisions cam) {

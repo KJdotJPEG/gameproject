@@ -15,6 +15,17 @@ public class ObjBlock extends Block{
     public boolean update(Collisions p) {
         return true;
     }
+
+    @Override
+    public boolean isInside(Collisions p) {
+        return false;
+    }
+
+    @Override
+    public Sprite getImage() {
+        return null;
+    }
+
     public void render(Graphics2D g) {
         super.render(g);
         g.setColor(Color.white);

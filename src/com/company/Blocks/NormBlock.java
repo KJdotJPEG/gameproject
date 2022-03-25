@@ -22,10 +22,6 @@ public class NormBlock extends Block {
         return false;
     }
 
-    public boolean update(Collisions p) {
-        return false;
-    }
-
     public Sprite getImage() { return img; }
 
     public void render(Graphics2D g){

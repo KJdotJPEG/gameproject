@@ -22,6 +22,15 @@ public class Sprite {
     private int w;
     private int h;
 
+    public Sprite(String s, int tilewidth, int tileheight) {
+    }
+
+    public Sprite(String s) {
+    }
+
+    public BufferedImage[] getSpriteArray(int currentAnimation) {
+    }
+
     public static enum effect {NORMAL, SEPIA, REDISH, GRAYSCALE, NEGATIVE, DECAY};
 
     private float[][] id = {{1.0f, 0.0f, 0.0f},
@@ -64,8 +73,8 @@ public class Sprite {
         pixels = ogpixels;
     }
 
-    public int getWidth() { return w; }
-    public int getHeight() { return h; }
+    public int getSpriteSheetWidth() { return w; }
+    public int getSpriteSheetHeight() { return h; }
 
     public void saveColors() {
         pixels = image.getRGB(0, 0, w, h, pixels, 0, w);
@@ -161,6 +170,9 @@ public class Sprite {
     public Sprite getSubimage(int x, int y, int w, int h) {
         return new Sprite(image.getSubimage(x, y, w, h));
     }
+
+    public Sprite getNewSprite(int temp, int tilecolumns) {} //the method is here, just undefined
+
 
     public Sprite getNewSubimage(int x, int y, int w, int h) {
         BufferedImage temp = image.getSubimage(x, y, w, h);
