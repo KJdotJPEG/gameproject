@@ -1,14 +1,7 @@
 package com.company.graphics;
 
-import com.company.Vector2f;
-import com.company.graphics.Font;
-
-import com.company.graphics.Matrix;
-
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 //class that loads sprites into the program
 
@@ -21,6 +14,8 @@ public class Sprite {
 
     private int w;
     private int h;
+    private Sprite Sprite;
+    private BufferedImage spritesheet;
 
     public Sprite(String s, int tilewidth, int tileheight) {
     }
@@ -28,7 +23,8 @@ public class Sprite {
     public Sprite(String s) {
     }
 
-    public BufferedImage[] getSpriteArray(int currentAnimation) {
+    public BufferedImage[] getSpriteArray(int currentFrame) {
+        return new BufferedImage[]{spritesheet};
     }
 
     public static enum effect {NORMAL, SEPIA, REDISH, GRAYSCALE, NEGATIVE, DECAY};
@@ -171,7 +167,9 @@ public class Sprite {
         return new Sprite(image.getSubimage(x, y, w, h));
     }
 
-    public Sprite getNewSprite(int temp, int tilecolumns) {} //the method is here, just undefined
+    public Sprite getNewSprite(int temp, int tilecolumns) {
+        return Sprite;
+    } //the method is here, just undefined
 
 
     public Sprite getNewSubimage(int x, int y, int w, int h) {

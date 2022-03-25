@@ -173,7 +173,8 @@ public class SpriteSheet {
 
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) != 32)
-                g.drawImage(f.getLetter(word.charAt(i), (int) x, (int) y, width, height, null);
+                g.drawImage(f.getLetter((int) x, (int) y), width, height, null);
+            //word.charAt(i),
 
             x += xOffset;
             y += yOffset;
