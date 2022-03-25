@@ -13,6 +13,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public static int width;
     public static int height;
+    public static int oldframecount;
 
     private Thread thread;
     private boolean running = false;
@@ -73,7 +74,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         int framecount = 0;
         int lastsecondtime = (int) (LUT/1000000000);
-        int oldframecount = 0;
+        oldframecount = 0;
 
 
 

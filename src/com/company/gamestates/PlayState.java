@@ -1,5 +1,7 @@
 package com.company.gamestates;
 
+import com.company.GamePanel;
+import com.company.assets.tilemap.Tilemanager;
 import com.company.entity.Player;
 import com.company.graphics.Font;
 import com.company.handlers.KeyHandler;
@@ -14,10 +16,12 @@ public class PlayState extends GameState {
 
     private Font font;
     private Player player;
+    private Tilemanager tm;
 
     public PlayState (GameStateManager gsm) {
         super(gsm);
-        font = new Font("com/company/assets/Spritesheets/font.png", 24,32);
+        tm = new Tilemanager("tilemap/tilemap.xml");
+        font = new Font("com/company/assets/Spritesheets/font.png", 10,10);
         player = new Player(new Sprite( "com/company/assets/Spritesheets/placeholderspritesheet.png"), new Vector2f(300,300), 100);
     }
 
@@ -57,7 +61,8 @@ public class PlayState extends GameState {
 
 
     public void render(Graphics2D g){
-        Font.drawArray(g, font, " AAAA ", new Vector2f(100,100), 32, 32, 32,0);
+        tm.render(g);
+        Font.drawArray(g, font, GamePanel.oldframecount + " FPS", new Vector2f(GamePanel.width - 192,32), 32, 32, 28,0);
         player.render(g);
     };
 }

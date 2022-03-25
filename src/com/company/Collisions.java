@@ -54,6 +54,8 @@ public class Collisions { //AABB
 
     public void setXoffset(float f) {xoffset = f; }
     public void setYoffset(float f) {yoffset = f; }
+    public float getXOffset() { return xoffset; }
+    public float getYOffset() { return yoffset; }
 
     public boolean Collides(Collisions bBox) {
         float ax = ((pos.getWorldVar().x + (xoffset)) + (w/2)); // middle of the position
